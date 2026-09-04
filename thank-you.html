@@ -83,15 +83,15 @@
 
   /* ADVISOR */
   .advisor{margin-top:52px}
-  .adv-eyebrow{margin:0 0 18px}
-  .adv-card{border:1px solid var(--border-strong);background:linear-gradient(180deg,var(--panel-2),var(--panel));border-radius:20px;padding:34px 30px;text-align:center;box-shadow:0 16px 46px -30px rgba(13,42,28,0.2)}
-  .adv-card.has-photo{display:flex;gap:30px;align-items:center;text-align:left}
-  .adv-photo{width:188px;height:188px;flex:none;border-radius:16px;object-fit:cover;border:1px solid var(--border);background:var(--panel-2)}
-  .adv-name{font-family:'Poppins';font-weight:800;font-size:clamp(21px,3vw,25px);letter-spacing:-0.02em;line-height:1.15}
-  .adv-title{color:var(--accent-d);font-family:'Poppins';font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;margin-top:7px}
-  .adv-proof{color:var(--text-2);font-size:13.5px;margin-top:12px;line-height:1.5}
-  .adv-bio{color:var(--text-2);font-size:15px;line-height:1.65;margin:15px auto 0;max-width:600px}
-  .adv-card.has-photo .adv-bio{margin-left:0;margin-right:0}
+  .prof-eyebrow{margin:0 0 18px}
+  .prof-card{border:1px solid var(--border-strong);background:linear-gradient(180deg,var(--panel-2),var(--panel));border-radius:20px;padding:34px 30px;text-align:center;box-shadow:0 16px 46px -30px rgba(13,42,28,0.2)}
+  .prof-card.has-photo{display:flex;gap:30px;align-items:center;text-align:left}
+  .prof-photo{width:188px;height:188px;flex:none;border-radius:16px;object-fit:cover;border:1px solid var(--border);background:var(--panel-2)}
+  .prof-name{font-family:'Poppins';font-weight:800;font-size:clamp(21px,3vw,25px);letter-spacing:-0.02em;line-height:1.15}
+  .prof-title{color:var(--accent-d);font-family:'Poppins';font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;margin-top:7px}
+  .prof-proof{color:var(--text-2);font-size:13.5px;margin-top:12px;line-height:1.5}
+  .prof-bio{color:var(--text-2);font-size:15px;line-height:1.65;margin:15px auto 0;max-width:600px}
+  .prof-card.has-photo .prof-bio{margin-left:0;margin-right:0}
   .advisor-more{display:none;align-items:center;gap:6px;margin-top:16px;color:var(--accent-d);font-family:'Poppins';font-weight:700;font-size:14.5px;text-decoration:none}
   .advisor-more:hover{text-decoration:underline}
   .advisor-more svg{width:15px;height:15px}
@@ -123,9 +123,9 @@
     .vwrap{margin-top:32px}
     section{padding:38px 0 0;margin-top:40px}
     .advisor{margin-top:40px}
-    .adv-card.has-photo{flex-direction:column;text-align:center}
-    .adv-card.has-photo .adv-bio{margin-left:auto;margin-right:auto}
-    .adv-photo{width:130px;height:130px}
+    .prof-card.has-photo{flex-direction:column;text-align:center}
+    .prof-card.has-photo .prof-bio{margin-left:auto;margin-right:auto}
+    .prof-photo{width:130px;height:130px}
     footer{padding-top:36px;margin-top:46px}
   }
 </style>
@@ -184,14 +184,14 @@ src="https://www.facebook.com/tr?id=1100120314636630&ev=PageView&noscript=1"
   <div class="vwrap" id="confirm-mount"></div>
 
   <div class="advisor">
-    <div class="eyebrow adv-eyebrow">&lt; Who you'll be talking to &gt;</div>
-    <div class="adv-card" id="adv-card">
-      <img class="adv-photo" id="adv-photo" alt="" style="display:none">
-      <div class="adv-body">
-        <div class="adv-name" id="adv-name"></div>
-        <div class="adv-title" id="adv-title"></div>
-        <div class="adv-proof" id="adv-proof"></div>
-        <p class="adv-bio" id="adv-bio"></p>
+    <div class="eyebrow prof-eyebrow">&lt; Who you'll be talking to &gt;</div>
+    <div class="prof-card" id="prof-card">
+      <img class="prof-photo" id="prof-photo" alt="" style="display:none">
+      <div class="prof-body">
+        <div class="prof-name" id="prof-name"></div>
+        <div class="prof-title" id="prof-title"></div>
+        <div class="prof-proof" id="prof-proof"></div>
+        <p class="prof-bio" id="prof-bio"></p>
         <a class="advisor-more" id="advisor-more" href="#" target="_blank" rel="noopener">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
@@ -271,14 +271,14 @@ src="https://www.facebook.com/tr?id=1100120314636630&ev=PageView&noscript=1"
   /* advisor intro (same card as the booking page) */
   (function(){
     function put(id,val){ var el=document.getElementById(id); if(!el) return; if(val){ el.textContent=val; } else { el.style.display='none'; } }
-    put('adv-name', C.ADVISOR_NAME);
-    put('adv-title', C.ADVISOR_TITLE);
-    put('adv-proof', C.ADVISOR_PROOF);
-    put('adv-bio', C.ADVISOR_BIO);
+    put('prof-name', C.ADVISOR_NAME);
+    put('prof-title', C.ADVISOR_TITLE);
+    put('prof-proof', C.ADVISOR_PROOF);
+    put('prof-bio', C.ADVISOR_BIO);
     if(C.SHOW_ADVISOR_PHOTO && C.ADVISOR_PHOTO){
-      var ph=document.getElementById('adv-photo');
-      ph.onerror=function(){ ph.style.display='none'; document.getElementById('adv-card').classList.remove('has-photo'); };
-      ph.src=C.ADVISOR_PHOTO; ph.style.display=''; document.getElementById('adv-card').classList.add('has-photo');
+      var ph=document.getElementById('prof-photo');
+      ph.onerror=function(){ ph.style.display='none'; document.getElementById('prof-card').classList.remove('has-photo'); };
+      ph.src=C.ADVISOR_PHOTO; ph.style.display=''; document.getElementById('prof-card').classList.add('has-photo');
     }
     if(C.ADVISOR_ABOUT_URL){
       var lk=document.getElementById('advisor-more'); lk.href=C.ADVISOR_ABOUT_URL; lk.style.display='inline-flex';
